@@ -1,3 +1,10 @@
+/*
+ * Problem: UVa 10112 - Myacm Triangles
+ * Lang: ANSI C
+ * Time: 0.009
+ * Author: minix
+ */
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -13,10 +20,12 @@ typedef struct _Mount{
 
 Mount mounts[N];
 
+/* get size of triangle (a,b,c) */
 double get_area(Mount a, Mount b, Mount c) {
   return fabs(0.5 * ((c.y-a.y)*(b.x-a.x) - (b.y-a.y)*(c.x-a.x)));
 }
-
+ 
+/* whether triangle (a,b,c) contains point d or not */
 int contains(Mount a, Mount b, Mount c, Mount d) {
   double sum = get_area(a,b,d) + get_area(a,c,d) + get_area(b,c,d);
   double gap = sum - get_area(a,b,c);
@@ -25,7 +34,7 @@ int contains(Mount a, Mount b, Mount c, Mount d) {
 
 void solve(Mount mounts[], int n, char result[]) {
   int i, j, k, s;
-  double min = 0;
+  double max = 0;
 
   for (i=0; i<n; i++)
     for (j=0; j<n; j++) {
@@ -39,8 +48,9 @@ void solve(Mount mounts[], int n, char result[]) {
             break;
         }
 
-        if ((s == n) && get_area(mounts[i], mounts[j], mounts[k]) > min) {
-          min = get_area(mounts[i], mounts[j], mounts[k]);
+        /* get max area */
+        if ((s == n) && get_area(mounts[i], mounts[j], mounts[k]) > max) {
+          max = get_area(mounts[i], mounts[j], mounts[k]);
           result[0] = mounts[i].label;
           result[1] = mounts[j].label;
           result[2] = mounts[k].label;
@@ -62,7 +72,7 @@ int main() {
     scanf ("%d", &n);
     if (n == 0)
       break;
-    getchar();
+    getchar(); /* read '\n' */
 
     for (i=0; i<n; i++) {
       scanf ("%c%d%d", &mounts[i].label, &mounts[i].x, &mounts[i].y);
