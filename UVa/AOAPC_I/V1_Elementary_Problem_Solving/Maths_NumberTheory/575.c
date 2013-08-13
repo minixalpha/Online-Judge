@@ -1,3 +1,10 @@
+/*
+ * Problem: UVa 575 - Skew Binary
+ * Lang: ANSI C
+ * Time: 0.015
+ * Author: minix
+ */
+
 #include <stdio.h>
 #include <string.h>
 

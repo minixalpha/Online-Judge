@@ -1,3 +1,10 @@
+/*
+ * Problem: UVa 568 - Just the Facts
+ * Lang: ANSI C
+ * Time: 0.019
+ * Author: minix
+ */
+
 #include <stdio.h>
 
 #define N 100000000000

@@ -1,3 +1,11 @@
+/*
+ * Problem: UVa 10110 - Light, more light
+ * Lang: ANSI C
+ * Time: 0.029
+ * Author: minix
+ */
+
+
 #include <stdio.h>
 #include <math.h>
 
