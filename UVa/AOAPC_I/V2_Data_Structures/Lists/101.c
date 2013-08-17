@@ -52,6 +52,7 @@ void return_up_stacks (Node nodes[N], Block *block) {
   }
 
   block->top = NULL;
+  nodes[nodes[block->seq].cur_stack].roof = block;
 }
 
 void a2b (Node nodes[N], int a, int b) {
@@ -182,6 +183,7 @@ int main() {
   int n;
   char cmd[M];
   Node nodes[N];
+  int i;
 
   scanf ("%d\n", &n);
   init (nodes, n);
